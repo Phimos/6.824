@@ -24,24 +24,24 @@ type ExampleReply struct {
 
 // Add your RPC definitions here.
 type MapReduceTask struct {
-	TaskType   string
-	TaskStatus string
+	TaskType   string // Map / Reduce / Wait
+	TaskStatus string // Unassigned / Assigned / Finished
 	TaskNum    int
 
-	MapFile     string
-	ReduceFiles []string
+	MapFile     string   // Input of Map task
+	ReduceFiles []string // Input of Reduce task
 
 	NumReduce int
 	NumMap    int
 }
 
-//
+// Args for RPC
 type MapReduceArgs struct {
-	MessageType string
+	MessageType string // request / finish
 	Task        MapReduceTask
 }
 
-//
+// Reply for RPC
 type MapReduceReply struct {
 	Task MapReduceTask
 }

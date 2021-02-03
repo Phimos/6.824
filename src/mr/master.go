@@ -48,7 +48,7 @@ func (m *Master) MapReduceHandler(args *MapReduceArgs, reply *MapReduceReply) er
 				if task.TaskStatus == "Unassigned" {
 					m.MapTasks[index].TaskStatus = "Assigned"
 					reply.Task = m.MapTasks[index]
-					go m.checkTimeout("Map", index, 20)
+					go m.checkTimeout("Map", index, 10)
 					return nil
 				}
 			}
@@ -59,7 +59,7 @@ func (m *Master) MapReduceHandler(args *MapReduceArgs, reply *MapReduceReply) er
 				if task.TaskStatus == "Unassigned" {
 					m.ReduceTasks[index].TaskStatus = "Assigned"
 					reply.Task = m.ReduceTasks[index]
-					go m.checkTimeout("Reduce", index, 20)
+					go m.checkTimeout("Reduce", index, 10)
 					return nil
 				}
 			}

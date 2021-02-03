@@ -176,11 +176,10 @@ func Worker(mapf func(string, string) []KeyValue,
 			mapTask(mapf, reply.Task)
 		case "Reduce":
 			reduceTask(reducef, reply.Task)
-		case "None":
+		case "Wait":
 			waitTask()
 		}
 	}
-
 }
 
 //
