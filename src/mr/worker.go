@@ -76,6 +76,7 @@ func loadIntermediateFile(filename string) []KeyValue {
 		}
 		kva = append(kva, kv)
 	}
+
 	return kva
 }
 
